@@ -1,3 +1,5 @@
 {
-  "block.celestialic.celestial_grass": "Celestial Grass"
+  "item.celestialic.heavenly_scale": "Heavenly Scale",
+  "block.celestialic.celestial_grass": "Celestial Grass",
+  "itemGroup.celestialic.celestialic": "Celestialic Tab"
 }
