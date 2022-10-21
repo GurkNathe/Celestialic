@@ -16,7 +16,8 @@ import net.minecraft.util.registry.Registry;
 public class ModBlocks {
 
     public static final CelestialGrass CELESTIAL_GRASS = (CelestialGrass)registerBlock("celestial_grass",
-            new CelestialGrass(FabricBlockSettings.of(Material.SOIL).strength(2f).requiresTool()), ModItemGroup.CELESTIALIC);
+            new CelestialGrass(FabricBlockSettings.of(Material.SOIL).strength(2f).requiresTool().resistance(3f)),
+            ModItemGroup.CELESTIALIC);
 
     private static Block registerBlock(String name, Block block, ItemGroup group) {
         registerBlockItem(name, block, group);
