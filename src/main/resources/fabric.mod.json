@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "net.gurknathe.celestialic.CelestialicMod"
+    ],
+    "client": [
+      "net.gurknathe.celestialic.CelestialicClientMod"
     ]
   },
   "mixins": [
