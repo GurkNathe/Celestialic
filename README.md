@@ -1,6 +1,6 @@
 # Celestialic
 
-A mob intending to add numerous fish mobs and boss, among other things.
+A mod intending to add numerous fish mobs and boss, among other things.
 
 \* = might be changed
 
