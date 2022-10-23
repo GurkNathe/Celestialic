@@ -141,7 +141,7 @@ This is all that is currently planned for implementation, for now. I plan on imp
 
 ---
 
-### Celestial Grass ![Cooked Koi](./src/main/resources/assets/celestialic/textures/block/celestial_grass_side.png) ![Cooked Koi](./src/main/resources/assets/celestialic/textures/block/celestial_grass_snow.png)
+### Celestial Grass ![Celestial Grass](./src/main/resources/assets/celestialic/textures/block/celestial_grass_side.png) ![Celestial Grass](./src/main/resources/assets/celestialic/textures/block/celestial_grass_snow.png)
 
     - Aquisition Method: Generated with Celestial Pools (other method TBD)
     - Functions: similar to grass, but can't spread and applies regeneration to an entity standing on top of it.
