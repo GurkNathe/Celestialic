@@ -1,2 +1,3 @@
 # Celestialic
-A Minecraft Fabric mod adding various mobs and structures to the game.
+
+A mob intending to add numerous fish mobs and boss.

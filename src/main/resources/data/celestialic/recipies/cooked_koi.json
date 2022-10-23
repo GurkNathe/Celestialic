@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "celestialic:raw_koi"
+  },
+  "result": "celestialic:cooked_koi",
+  "experience": 0.35,
+  "cookingtime": 200
+}

@@ -13,6 +13,6 @@ public class ModEntities {
     public static final EntityType<KoiEntity> KOI = Registry.register(
             Registry.ENTITY_TYPE, new Identifier(CelestialicMod.MOD_ID, "koi"),
             FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, KoiEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.4f, 0.3f)).build()
+                    .dimensions(EntityDimensions.changing(0.5f, 0.3f)).build()
     );
 }

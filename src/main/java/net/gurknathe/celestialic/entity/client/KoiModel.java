@@ -13,7 +13,7 @@ public class KoiModel extends AnimatedGeoModel<KoiEntity> {
 
     @Override
     public Identifier getTextureLocation(KoiEntity object) {
-        return new Identifier(CelestialicMod.MOD_ID, "textures/entity/koi/koi_base.png");
+        return KoiRenderer.LOCATION_BY_VARIANT.get(object.getVariant());
     }
 
     @Override

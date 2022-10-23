@@ -1,17 +1,26 @@
 package net.gurknathe.celestialic.entity.custom;
 
+import net.gurknathe.celestialic.entity.variant.KoiVariant;
+import net.gurknathe.celestialic.item.ModItems;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.ai.goal.FollowGroupLeaderGoal;
+import net.minecraft.entity.ai.goal.EscapeDangerGoal;
+import net.minecraft.entity.ai.goal.FleeEntityGoal;
+import net.minecraft.entity.ai.goal.MoveIntoWaterGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.SchoolingFishEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Util;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
@@ -25,21 +34,77 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
+    private KoiEntity leader;
+    private static final TrackedData<Boolean> FROM_BUCKET =
+            DataTracker.registerData(KoiEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+
+    private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT =
+            DataTracker.registerData(KoiEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private AnimationFactory factory = new AnimationFactory(this);
 
     public KoiEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
         super(entityType, world);
     }
 
-    @Nullable
     @Override
-    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-        return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
+    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty,
+                                 SpawnReason spawnReason, @Nullable EntityData entityData,
+                                 @Nullable NbtCompound entityNbt) {
+        super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
+
+        /*
+        * From TropicalFishEntity :
+        *   checks if koi was picked up by a bucket or not
+        *   and spawns the variant koi accordingly
+        */
+        if (spawnReason == SpawnReason.BUCKET && entityNbt != null && entityNbt.contains("BucketVariantTag", 3)) {
+            this.setVariant(KoiVariant.byId(entityNbt.getInt("BucketVariantTag")));
+            return entityData;
+        }
+
+        /*
+        * From SchoolingFishEntity :
+        *   used to check whether there is a group of koi to follow,
+        *   if not, makes this the new leader
+        */
+        if (entityData == null) {
+            entityData = new FishData(this);
+        } else {
+            this.joinGroupOf(leader);
+        }
+
+        // Gets a random koi morph for this koi
+        KoiVariant variant = Util.getRandom(KoiVariant.values(), this.random);
+        setVariant(variant);
+
+        return entityData;
     }
 
     @Override
-    public ItemStack getBucketItem() {
-        return null;
+    public void writeCustomDataToNbt(NbtCompound nbt) {
+        super.writeCustomDataToNbt(nbt);
+        nbt.putInt("Variant", this.getTypeVariant());
+        nbt.putBoolean("FromBucket", this.dataTracker.get(FROM_BUCKET));
+    }
+
+    @Override
+    public void readCustomDataFromNbt(NbtCompound nbt) {
+        super.readCustomDataFromNbt(nbt);
+        this.dataTracker.set(DATA_ID_TYPE_VARIANT, nbt.getInt("Variant"));
+        this.dataTracker.set(FROM_BUCKET, nbt.getBoolean("FromBucket"));
+    }
+
+    public void copyDataToStack(ItemStack stack) {
+        super.copyDataToStack(stack);
+        NbtCompound nbtCompound = stack.getOrCreateNbt();
+        nbtCompound.putInt("BucketVariantTag", this.dataTracker.get(DATA_ID_TYPE_VARIANT));
+    }
+
+    @Override
+    protected void initDataTracker() {
+        super.initDataTracker();
+        this.dataTracker.startTracking(DATA_ID_TYPE_VARIANT, 0);
+        this.dataTracker.startTracking(FROM_BUCKET, false);
     }
 
     public static DefaultAttributeContainer.Builder setAttributes() {
@@ -47,17 +112,36 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 6.0)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 8.0f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 2.0f)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3f);
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 1.0f);
     }
 
     protected void initGoals() {
         super.initGoals();
-        this.goalSelector.add(5, new FollowGroupLeaderGoal(this));
+        this.goalSelector.add(1, new MoveIntoWaterGoal(this));
+        this.goalSelector.add(2, new EscapeDangerGoal(this, 5));
+        this.goalSelector.add(3, new FleeEntityGoal<>(this, PlayerEntity.class,
+                5.0f, 1, 5));
     }
 
-    private <E extends IAnimatable>PlayState predicate(AnimationEvent<E> event) {
+    /* Variants controllers */
 
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.koi.idle", true));
+    public KoiVariant getVariant() {
+        return KoiVariant.byId(this.getTypeVariant() & 255);
+    }
+
+    private int getTypeVariant() {
+        return this.dataTracker.get(DATA_ID_TYPE_VARIANT);
+    }
+
+    private void setVariant(KoiVariant variant) {
+        this.dataTracker.set(DATA_ID_TYPE_VARIANT, variant.getId() & 255);
+    }
+
+    /* Gekolib animation controllers */
+
+    private <E extends IAnimatable>PlayState predicate(AnimationEvent<E> event) {
+        event.getController().setAnimation(new AnimationBuilder()
+                .addAnimation("animation.koi.idle", true));
 
         return PlayState.CONTINUE;
     }
@@ -73,6 +157,8 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
     public AnimationFactory getFactory() {
         return factory;
     }
+
+    /* Sound functions */
 
     @Nullable
     @Override
@@ -95,5 +181,16 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
     @Override
     protected SoundEvent getFlopSound() {
         return SoundEvents.ENTITY_COD_FLOP;
+    }
+
+    /* Extra features */
+
+    public boolean canBeLeashedBy(PlayerEntity player) {
+        return true;
+    }
+
+    @Override
+    public ItemStack getBucketItem() {
+        return new ItemStack(ModItems.KOI_BUCKET);
     }
 }
