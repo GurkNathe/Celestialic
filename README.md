@@ -1,4 +1,4 @@
-# Celestialic
+# Celestialic [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A mod intending to add numerous fish mobs and boss, among other things.
 
