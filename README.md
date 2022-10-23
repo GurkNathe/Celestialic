@@ -10,4 +10,4 @@ This is all that is currently planned for implementation, for now. I plan on imp
 
 # Wiki Page
 
-[Mod Wiki Home](https://github.com/GurkNathe/Celestialic/wiki)
+<a href="https://github.com/GurkNathe/Celestialic/wiki" target="_blank">Mod Wiki Home</a>
