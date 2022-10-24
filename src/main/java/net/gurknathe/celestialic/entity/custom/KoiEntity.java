@@ -3,9 +3,7 @@ package net.gurknathe.celestialic.entity.custom;
 import net.gurknathe.celestialic.entity.variant.KoiVariant;
 import net.gurknathe.celestialic.item.ModItems;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.goal.EscapeDangerGoal;
-import net.minecraft.entity.ai.goal.FleeEntityGoal;
-import net.minecraft.entity.ai.goal.MoveIntoWaterGoal;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -32,7 +30,6 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
-    private KoiEntity leader;
     private static final TrackedData<Boolean> FROM_BUCKET =
             DataTracker.registerData(KoiEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
@@ -69,7 +66,7 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
         if (entityData == null) {
             entityData = new FishData(this);
         } else {
-            this.joinGroupOf(leader);
+            this.joinGroupOf(((FishData)entityData).leader);
         }
 
         // Gets a random koi morph for this koi
@@ -107,22 +104,21 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
         this.dataTracker.startTracking(FROM_BUCKET, false);
     }
 
-
-
     public static DefaultAttributeContainer.Builder setAttributes() {
         return SchoolingFishEntity.createFishAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 6.0)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 8.0f)
-                .add(EntityAttributes.GENERIC_ATTACK_SPEED, 2.0f)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 0.0f)
+                .add(EntityAttributes.GENERIC_ATTACK_SPEED, 0.0f)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 1.0f);
     }
 
     protected void initGoals() {
         super.initGoals();
         this.goalSelector.add(1, new MoveIntoWaterGoal(this));
-        this.goalSelector.add(2, new EscapeDangerGoal(this, 5));
-        this.goalSelector.add(3, new FleeEntityGoal<>(this, PlayerEntity.class,
-                5.0f, 1, 5));
+        this.goalSelector.add(1, new EscapeDangerGoal(this, 5));
+        this.goalSelector.add(1, new FleeEntityGoal<>(this, PlayerEntity.class,
+                20.0f, 1, 10));
+        this.goalSelector.add(2, new BreatheAirGoal(this));
     }
 
     /* Variants controllers */
