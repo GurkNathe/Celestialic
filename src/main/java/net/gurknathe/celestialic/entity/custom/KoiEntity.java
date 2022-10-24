@@ -2,9 +2,7 @@ package net.gurknathe.celestialic.entity.custom;
 
 import net.gurknathe.celestialic.entity.variant.KoiVariant;
 import net.gurknathe.celestialic.item.ModItems;
-import net.minecraft.entity.EntityData;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.FleeEntityGoal;
 import net.minecraft.entity.ai.goal.MoveIntoWaterGoal;
@@ -40,6 +38,7 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
 
     private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT =
             DataTracker.registerData(KoiEntity.class, TrackedDataHandlerRegistry.INTEGER);
+
     private AnimationFactory factory = new AnimationFactory(this);
 
     public KoiEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
@@ -94,6 +93,7 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
         this.dataTracker.set(FROM_BUCKET, nbt.getBoolean("FromBucket"));
     }
 
+    @Override
     public void copyDataToStack(ItemStack stack) {
         super.copyDataToStack(stack);
         NbtCompound nbtCompound = stack.getOrCreateNbt();
@@ -106,6 +106,8 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
         this.dataTracker.startTracking(DATA_ID_TYPE_VARIANT, 0);
         this.dataTracker.startTracking(FROM_BUCKET, false);
     }
+
+
 
     public static DefaultAttributeContainer.Builder setAttributes() {
         return SchoolingFishEntity.createFishAttributes()

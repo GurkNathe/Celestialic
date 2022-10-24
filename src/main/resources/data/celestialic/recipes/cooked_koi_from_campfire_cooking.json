@@ -1,9 +1,9 @@
 {
-  "type": "minecraft:smoking",
+  "type": "minecraft:campfire_cooking",
   "ingredient": {
     "item": "celestialic:raw_koi"
   },
   "result": "celestialic:cooked_koi",
-  "experience": 0.35,
-  "cookingtime": 100
+  "experience": 0.3,
+  "cookingtime": 300
 }
