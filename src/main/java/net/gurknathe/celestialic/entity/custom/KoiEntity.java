@@ -138,8 +138,13 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
     /* Gekolib animation controllers */
 
     private <E extends IAnimatable>PlayState predicate(AnimationEvent<E> event) {
-        event.getController().setAnimation(new AnimationBuilder()
-                .addAnimation("animation.koi.idle", true));
+        if (!this.isSubmergedInWater()) {
+            event.getController().setAnimation(new AnimationBuilder()
+                    .addAnimation("animation.koi.flop", true));
+        } else {
+            event.getController().setAnimation(new AnimationBuilder()
+                    .addAnimation("animation.koi.idle", true));
+        }
 
         return PlayState.CONTINUE;
     }
