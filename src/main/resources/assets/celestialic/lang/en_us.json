@@ -1,11 +1,15 @@
 {
   "item.celestialic.heavenly_scale": "Heavenly Scale",
   "item.celestialic.koi_spawn_egg": "Koi Spawn Egg",
+  "item.celestialic.aureate_koi_spawn_egg": "Aureate Koi Spawn Egg",
   "item.celestialic.bucket_of_koi": "Bucket of Koi",
   "item.celestialic.raw_koi": "Raw Koi",
   "item.celestialic.cooked_koi": "Cooked Koi",
 
   "block.celestialic.celestial_grass": "Celestial Grass",
 
-  "itemGroup.celestialic.celestialic": "Celestialic Tab"
+  "itemGroup.celestialic.celestialic": "Celestialic Tab",
+
+  "entity.celestialic.aureate_koi": "Aureate Koi",
+  "entity.celestialic.koi": "Koi"
 }

@@ -4,7 +4,11 @@ import com.google.common.collect.Maps;
 import net.gurknathe.celestialic.CelestialicMod;
 import net.gurknathe.celestialic.entity.custom.KoiEntity;
 import net.gurknathe.celestialic.entity.variant.KoiVariant;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
@@ -41,5 +45,15 @@ public class KoiRenderer extends GeoEntityRenderer<KoiEntity> {
     @Override
     public Identifier getTextureLocation(KoiEntity instance) {
         return LOCATION_BY_VARIANT.get(instance.getVariant());
+    }
+
+    @Override
+    public RenderLayer getRenderType(KoiEntity animatable, float partialTicks, MatrixStack stack,
+                                     VertexConsumerProvider renderTypeBuffer, VertexConsumer vertexBuilder,
+                                     int packedLightIn, Identifier textureLocation) {
+        stack.scale(animatable.getScale(),animatable.getScale(),animatable.getScale());
+
+        return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder,
+                packedLightIn, textureLocation);
     }
 }

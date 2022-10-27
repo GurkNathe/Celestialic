@@ -1,6 +1,7 @@
 package net.gurknathe.celestialic.entity.custom;
 
 import net.gurknathe.celestialic.entity.variant.KoiVariant;
+import net.gurknathe.celestialic.helper.HelperFunctions;
 import net.gurknathe.celestialic.item.ModItems;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
@@ -29,7 +30,12 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
+import java.util.Random;
+
 public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
+
+    public static final TrackedData<Float> SCALE =
+            DataTracker.registerData(KoiEntity.class, TrackedDataHandlerRegistry.FLOAT);
     private static final TrackedData<Boolean> FROM_BUCKET =
             DataTracker.registerData(KoiEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
@@ -55,6 +61,7 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
         */
         if (spawnReason == SpawnReason.BUCKET && entityNbt != null && entityNbt.contains("BucketVariantTag", 3)) {
             this.setVariant(KoiVariant.byId(entityNbt.getInt("BucketVariantTag")));
+            this.setScale(entityNbt.getFloat("BucketScaleTag"));
             return entityData;
         }
 
@@ -81,6 +88,7 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
         super.writeCustomDataToNbt(nbt);
         nbt.putInt("Variant", this.getTypeVariant());
         nbt.putBoolean("FromBucket", this.dataTracker.get(FROM_BUCKET));
+        nbt.putFloat("Scale", this.dataTracker.get(SCALE));
     }
 
     @Override
@@ -88,6 +96,7 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
         super.readCustomDataFromNbt(nbt);
         this.dataTracker.set(DATA_ID_TYPE_VARIANT, nbt.getInt("Variant"));
         this.dataTracker.set(FROM_BUCKET, nbt.getBoolean("FromBucket"));
+        this.dataTracker.set(SCALE, nbt.getFloat("Scale"));
     }
 
     @Override
@@ -95,6 +104,7 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
         super.copyDataToStack(stack);
         NbtCompound nbtCompound = stack.getOrCreateNbt();
         nbtCompound.putInt("BucketVariantTag", this.dataTracker.get(DATA_ID_TYPE_VARIANT));
+        nbtCompound.putFloat("BucketScaleTag", this.dataTracker.get(SCALE));
     }
 
     @Override
@@ -102,6 +112,7 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
         super.initDataTracker();
         this.dataTracker.startTracking(DATA_ID_TYPE_VARIANT, 0);
         this.dataTracker.startTracking(FROM_BUCKET, false);
+        this.dataTracker.startTracking(SCALE, HelperFunctions.nextMyGaussian(new Random()));
     }
 
     public static DefaultAttributeContainer.Builder setAttributes() {
@@ -115,10 +126,10 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
     protected void initGoals() {
         super.initGoals();
         this.goalSelector.add(1, new MoveIntoWaterGoal(this));
-        this.goalSelector.add(1, new EscapeDangerGoal(this, 5));
-        this.goalSelector.add(1, new FleeEntityGoal<>(this, PlayerEntity.class,
+        this.goalSelector.add(2, new EscapeDangerGoal(this, 5));
+        this.goalSelector.add(3, new FleeEntityGoal<>(this, PlayerEntity.class,
                 20.0f, 1, 10));
-        this.goalSelector.add(2, new BreatheAirGoal(this));
+        this.goalSelector.add(4, new BreatheAirGoal(this));
     }
 
     /* Variants controllers */
@@ -195,5 +206,13 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
     @Override
     public ItemStack getBucketItem() {
         return new ItemStack(ModItems.KOI_BUCKET);
+    }
+
+    public float getScale() {
+        return this.dataTracker.get(SCALE);
+    }
+
+    public void setScale(float scale) {
+        this.dataTracker.set(SCALE, scale);
     }
 }

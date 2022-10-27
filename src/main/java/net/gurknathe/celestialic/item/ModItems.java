@@ -14,6 +14,7 @@ import net.minecraft.util.registry.Registry;
 public class ModItems {
     public static final Item HEAVENLY_SCALE;
     public static final Item KOI_SPAWN_EGG;
+    public static final Item AUREATE_KOI_SPAWN_EGG;
     public static final Item KOI_BUCKET;
     public static final Item RAW_KOI;
     public static final Item COOKED_KOI;
@@ -39,6 +40,12 @@ public class ModItems {
         COOKED_KOI = registerItem("cooked_koi",
                 new Item(new FabricItemSettings().group(ModItemGroup.CELESTIALIC)
                                 .food(ModFoodComponents.COOKED_KOI)));
+        AUREATE_KOI_SPAWN_EGG = registerItem("aureate_koi_spawn_egg",
+                new SpawnEggItem(
+                        ModEntities.AUREATE_KOI,
+                        0xffbb00,
+                        0x00f7ff,
+                        new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
     }
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(CelestialicMod.MOD_ID, name), item);
