@@ -19,8 +19,12 @@ public class ModItems {
     public static final Item RAW_KOI;
     public static final Item COOKED_KOI;
 
+    private static final Item SHIMMERING_SCALE;
+
     static {
         HEAVENLY_SCALE = registerItem("heavenly_scale",
+                new Item(new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
+        SHIMMERING_SCALE = registerItem("shimmering_scale",
                 new Item(new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
         KOI_SPAWN_EGG = registerItem("koi_spawn_egg",
                 new SpawnEggItem(

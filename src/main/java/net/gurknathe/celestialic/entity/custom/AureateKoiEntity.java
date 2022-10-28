@@ -90,10 +90,10 @@ public class AureateKoiEntity extends WaterCreatureEntity implements IAnimatable
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.2, true));
         this.goalSelector.add(2, new MoveIntoWaterGoal(this));
         this.goalSelector.add(4, new WanderAroundGoal(this, 1.0, 80));
-        this.goalSelector.add(5, new BreatheAirGoal(this));
+        this.goalSelector.add(4, new BreatheAirGoal(this));
 
-        this.targetSelector.add(4, new RevengeGoal(this, new Class[0]));
         this.targetSelector.add(3, new TargetGoal(this));
+        this.targetSelector.add(4, new RevengeGoal(this, new Class[0]));
     }
 
 
@@ -153,7 +153,8 @@ public class AureateKoiEntity extends WaterCreatureEntity implements IAnimatable
         if (!this.canTarget(entity)) {
             return false;
         } else {
-            return entity.getType() == EntityType.PLAYER && this.isUniversallyAngry(entity.world) || entity.getUuid().equals(this.getAngryAt());
+            return entity.getType() == EntityType.PLAYER && this.isUniversallyAngry(entity.world) ||
+                    entity.getUuid().equals(this.getAngryAt());
         }
     }
 
@@ -289,7 +290,8 @@ public class AureateKoiEntity extends WaterCreatureEntity implements IAnimatable
                 double g = this.targetZ - this.fish.getZ();
                 if (e != 0.0) {
                     double h = Math.sqrt(d * d + e * e + g * g);
-                    this.fish.setVelocity(this.fish.getVelocity().add(0.0, (double)this.fish.getMovementSpeed() * (e / h) * 0.1, 0.0));
+                    this.fish.setVelocity(this.fish.getVelocity().add(0.0,
+                            (double)this.fish.getMovementSpeed() * (e / h) * 0.1, 0.0));
                 }
 
                 if (d != 0.0 || g != 0.0) {
