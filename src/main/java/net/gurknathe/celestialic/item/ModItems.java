@@ -3,7 +3,10 @@ package net.gurknathe.celestialic.item;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.gurknathe.celestialic.CelestialicMod;
 import net.gurknathe.celestialic.entity.ModEntities;
+import net.gurknathe.celestialic.item.custom.ModArmorItem;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.EntityBucketItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.SpawnEggItem;
@@ -18,8 +21,11 @@ public class ModItems {
     public static final Item KOI_BUCKET;
     public static final Item RAW_KOI;
     public static final Item COOKED_KOI;
-
-    private static final Item SHIMMERING_SCALE;
+    public static final Item SHIMMERING_SCALE;
+    public static final Item SHIMMERING_HELMET;
+    public static final Item SHIMMERING_CHESTPLATE;
+    public static final Item SHIMMERING_GREAVES;
+    public static final Item SHIMMERING_BOOTS;
 
     static {
         HEAVENLY_SCALE = registerItem("heavenly_scale",
@@ -49,6 +55,22 @@ public class ModItems {
                         ModEntities.AUREATE_KOI,
                         0xffbb00,
                         0x00f7ff,
+                        new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
+
+        SHIMMERING_HELMET = registerItem("shimmering_helmet",
+                new ModArmorItem(ModArmorMaterials.SHIMMERING, EquipmentSlot.HEAD,
+                        new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
+
+        SHIMMERING_CHESTPLATE = registerItem("shimmering_chestplate",
+                new ArmorItem(ModArmorMaterials.SHIMMERING, EquipmentSlot.CHEST,
+                        new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
+
+        SHIMMERING_GREAVES = registerItem("shimmering_greaves",
+                new ArmorItem(ModArmorMaterials.SHIMMERING, EquipmentSlot.LEGS,
+                        new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
+
+        SHIMMERING_BOOTS = registerItem("shimmering_boots",
+                new ArmorItem(ModArmorMaterials.SHIMMERING, EquipmentSlot.FEET,
                         new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
     }
     private static Item registerItem(String name, Item item) {
