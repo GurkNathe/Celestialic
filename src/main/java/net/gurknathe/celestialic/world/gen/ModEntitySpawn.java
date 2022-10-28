@@ -12,10 +12,10 @@ import net.minecraft.world.biome.Biome;
 
 public class ModEntitySpawn {
     public static void addEntitySpawn() {
-        BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.RIVER, Biome.Category.SWAMP),
+        BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.RIVER),
                 SpawnGroup.WATER_AMBIENT,
                 ModEntities.KOI,
-                2,
+                1,
                 0,
                 5);
         SpawnRestrictionAccessor.callRegister(

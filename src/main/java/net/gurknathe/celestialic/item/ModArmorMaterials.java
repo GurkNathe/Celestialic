@@ -13,7 +13,7 @@ import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
     SHIMMERING("shimmering", 18, new int[]{2, 5, 6, 3}, 28,
-            SoundEvents.ITEM_ARMOR_EQUIP_TURTLE, 0.0F, 0.0F,
+            SoundEvents.ITEM_ARMOR_EQUIP_TURTLE, 1.0F, 0.0F,
             () -> Ingredient.ofItems(new ItemConvertible[]{ModItems.SHIMMERING_SCALE, Items.GOLD_INGOT}));
 
     private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};

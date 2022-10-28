@@ -118,8 +118,6 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
     public static DefaultAttributeContainer.Builder setAttributes() {
         return SchoolingFishEntity.createFishAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 6.0)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 0.0f)
-                .add(EntityAttributes.GENERIC_ATTACK_SPEED, 0.0f)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 1.0f);
     }
 
