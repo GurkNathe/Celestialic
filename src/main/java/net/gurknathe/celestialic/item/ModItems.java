@@ -18,6 +18,8 @@ public class ModItems {
     public static final Item HEAVENLY_SCALE;
     public static final Item KOI_SPAWN_EGG;
     public static final Item AUREATE_KOI_SPAWN_EGG;
+    public static final Item YANG_KOI_SPAWN_EGG;
+    public static final Item YIN_KOI_SPAWN_EGG;
     public static final Item KOI_BUCKET;
     public static final Item RAW_KOI;
     public static final Item COOKED_KOI;
@@ -55,6 +57,18 @@ public class ModItems {
                         ModEntities.AUREATE_KOI,
                         0xffbb00,
                         0x00f7ff,
+                        new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
+        YANG_KOI_SPAWN_EGG = registerItem("yang_koi_spawn_egg",
+                new SpawnEggItem(
+                        ModEntities.YANG_KOI,
+                        0x000000,
+                        0xffffff,
+                        new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
+        YIN_KOI_SPAWN_EGG = registerItem("yin_koi_spawn_egg",
+                new SpawnEggItem(
+                        ModEntities.YIN_KOI,
+                        0xffffff,
+                        0x000000,
                         new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
 
         SHIMMERING_HELMET = registerItem("shimmering_helmet",

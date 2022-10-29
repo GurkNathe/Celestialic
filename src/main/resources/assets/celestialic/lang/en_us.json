@@ -3,6 +3,8 @@
   "item.celestialic.shimmering_scale": "Shimmering Scale",
   "item.celestialic.koi_spawn_egg": "Koi Spawn Egg",
   "item.celestialic.aureate_koi_spawn_egg": "Aureate Koi Spawn Egg",
+  "item.celestialic.yang_koi_spawn_egg": "Yang Koi Spawn Egg",
+  "item.celestialic.yin_koi_spawn_egg": "Yin Koi Spawn Egg",
   "item.celestialic.bucket_of_koi": "Bucket of Koi",
   "item.celestialic.raw_koi": "Raw Koi",
   "item.celestialic.cooked_koi": "Cooked Koi",
@@ -18,5 +20,7 @@
   "itemGroup.celestialic.celestialic": "Celestialic Tab",
 
   "entity.celestialic.aureate_koi": "Aureate Koi",
+  "entity.celestialic.yang_koi": "Yang Koi",
+  "entity.celestialic.yin_koi": "Yin Koi",
   "entity.celestialic.koi": "Koi"
 }
