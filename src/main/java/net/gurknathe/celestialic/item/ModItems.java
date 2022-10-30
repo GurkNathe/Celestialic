@@ -16,6 +16,8 @@ import net.minecraft.util.registry.Registry;
 
 public class ModItems {
     public static final Item HEAVENLY_SCALE;
+    public static final Item YANG_CRYSTAL;
+    public static final Item YIN_CRYSTAL;
     public static final Item KOI_SPAWN_EGG;
     public static final Item AUREATE_KOI_SPAWN_EGG;
     public static final Item YANG_KOI_SPAWN_EGG;
@@ -31,6 +33,10 @@ public class ModItems {
 
     static {
         HEAVENLY_SCALE = registerItem("heavenly_scale",
+                new Item(new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
+        YANG_CRYSTAL = registerItem("yang_crystal",
+                new Item(new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
+        YIN_CRYSTAL = registerItem("yin_crystal",
                 new Item(new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
         SHIMMERING_SCALE = registerItem("shimmering_scale",
                 new Item(new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));

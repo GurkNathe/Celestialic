@@ -1,5 +1,7 @@
 {
   "item.celestialic.heavenly_scale": "Heavenly Scale",
+  "item.celestialic.yang_crystal": "Yang Crystal",
+  "item.celestialic.yin_crystal": "Yin Crystal",
   "item.celestialic.shimmering_scale": "Shimmering Scale",
   "item.celestialic.koi_spawn_egg": "Koi Spawn Egg",
   "item.celestialic.aureate_koi_spawn_egg": "Aureate Koi Spawn Egg",
@@ -13,7 +15,6 @@
   "item.celestialic.shimmering_chestplate": "Shimmering Chestplate",
   "item.celestialic.shimmering_greaves": "Shimmering Greaves",
   "item.celestialic.shimmering_boots": "Shimmering Boots",
-
 
   "block.celestialic.celestial_grass": "Celestial Grass",
 
