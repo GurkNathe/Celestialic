@@ -3,10 +3,9 @@ package net.gurknathe.celestialic.item;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.gurknathe.celestialic.CelestialicMod;
 import net.gurknathe.celestialic.entity.ModEntities;
-import net.gurknathe.celestialic.item.custom.ModArmorItem;
+import net.gurknathe.celestialic.item.custom.ShimmeringArmorItem;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.EntityBucketItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.SpawnEggItem;
@@ -78,19 +77,19 @@ public class ModItems {
                         new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
 
         SHIMMERING_HELMET = registerItem("shimmering_helmet",
-                new ModArmorItem(ModArmorMaterials.SHIMMERING, EquipmentSlot.HEAD,
+                new ShimmeringArmorItem(ModArmorMaterials.SHIMMERING, EquipmentSlot.HEAD,
                         new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
 
         SHIMMERING_CHESTPLATE = registerItem("shimmering_chestplate",
-                new ArmorItem(ModArmorMaterials.SHIMMERING, EquipmentSlot.CHEST,
+                new ShimmeringArmorItem(ModArmorMaterials.SHIMMERING, EquipmentSlot.CHEST,
                         new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
 
         SHIMMERING_GREAVES = registerItem("shimmering_greaves",
-                new ArmorItem(ModArmorMaterials.SHIMMERING, EquipmentSlot.LEGS,
+                new ShimmeringArmorItem(ModArmorMaterials.SHIMMERING, EquipmentSlot.LEGS,
                         new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
 
         SHIMMERING_BOOTS = registerItem("shimmering_boots",
-                new ArmorItem(ModArmorMaterials.SHIMMERING, EquipmentSlot.FEET,
+                new ShimmeringArmorItem(ModArmorMaterials.SHIMMERING, EquipmentSlot.FEET,
                         new FabricItemSettings().group(ModItemGroup.CELESTIALIC)));
     }
     private static Item registerItem(String name, Item item) {
