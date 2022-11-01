@@ -1,5 +1,6 @@
 package net.gurknathe.celestialic.entity.custom;
 
+import net.gurknathe.celestialic.particle.ModParticles;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.control.MoveControl;
 import net.minecraft.entity.ai.goal.*;
@@ -260,6 +261,21 @@ public class AureateKoiEntity extends WaterCreatureEntity implements IAnimatable
             this.onGround = false;
             this.velocityDirty = true;
             this.playSound(this.getFlopSound(), this.getSoundVolume(), this.getSoundPitch());
+        }
+
+        if (this.world.isClient) {
+            // Add particle effect
+            if (this.random.nextDouble() > 0.85) {
+                this.world.addParticle(ModParticles.AUREATE_PARTICLE,
+                        this.getParticleX(0.5),
+                        this.getRandomBodyY(),
+                        this.getParticleZ(0.5),
+
+                        (this.random.nextDouble() - 0.5),
+                        0,
+                        (this.random.nextDouble() - 0.5)
+                );
+            }
         }
 
         if (!this.world.isClient) {

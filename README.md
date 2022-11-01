@@ -1,4 +1,6 @@
-# Celestialic [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![Version: ](https://img.shields.io/badge/version-v0.1.4.2-blue)
+# Celestialic [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![Version: ](https://img.shields.io/badge/version-v0.1.4.3-blue)
+
+![Logo](.\src\main\resources\assets\celestialic\icon.png)
 
 A mod intending to add numerous fish mobs and boss, among other things.
 

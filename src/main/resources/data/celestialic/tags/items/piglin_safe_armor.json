@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:golden_helmet",
+    "minecraft:golden_chestplate",
+    "minecraft:golden_leggings",
+    "minecraft:golden_boots",
+    "celestialic:shimmering_helmet",
+    "celestialic:shimmering_chestplate",
+    "celestialic:shimmering_greaves",
+    "celestialic:shimmering_boots"
+  ]
+}

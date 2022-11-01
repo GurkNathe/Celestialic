@@ -4,13 +4,14 @@
   "version": "${version}",
 
   "name": "Celestialic Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "A mod intending to add numerous fish mobs and boss, among other things.",
   "authors": [
     "GurkNathe"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/celestialic",
+    "sources": "https://github.com/GurkNathe/Celestialic",
+    "issues": "https://github.com/GurkNathe/Celestialic/issues"
   },
 
   "license": "MIT",

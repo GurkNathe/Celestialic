@@ -4,6 +4,7 @@
   "package": "net.gurknathe.celestialic.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "PiglinBrainMixin"
   ],
   "client": [
     "ExampleMixin"
