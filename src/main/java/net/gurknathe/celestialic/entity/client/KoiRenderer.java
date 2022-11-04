@@ -15,6 +15,7 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 
 import java.util.Map;
 
+// TODO: Implement variants
 public class KoiRenderer extends GeoEntityRenderer<KoiEntity> {
     public static final Map<KoiVariant, Identifier> LOCATION_BY_VARIANT =
             Util.make(Maps.newEnumMap(KoiVariant.class), (map) -> {
@@ -44,7 +45,8 @@ public class KoiRenderer extends GeoEntityRenderer<KoiEntity> {
 
     @Override
     public Identifier getTextureLocation(KoiEntity instance) {
-        return LOCATION_BY_VARIANT.get(instance.getVariant());
+        return new Identifier(CelestialicMod.MOD_ID, "textures/entity/koi/template.png");
+//        return LOCATION_BY_VARIANT.get(instance.getVariant());
     }
 
     @Override

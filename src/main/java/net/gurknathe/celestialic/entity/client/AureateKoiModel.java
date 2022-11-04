@@ -2,11 +2,10 @@ package net.gurknathe.celestialic.entity.client;
 
 import net.gurknathe.celestialic.CelestialicMod;
 import net.gurknathe.celestialic.entity.custom.AureateKoiEntity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
-public class AureateKoiModel<T extends LivingEntity> extends AnimatedGeoModel<AureateKoiEntity> {
+public class AureateKoiModel extends AnimatedGeoModel<AureateKoiEntity> {
     @Override
     public Identifier getModelLocation(AureateKoiEntity object) {
         return new Identifier(CelestialicMod.MOD_ID, "geo/koi.geo.json");

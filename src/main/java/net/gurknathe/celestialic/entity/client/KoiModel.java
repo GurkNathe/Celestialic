@@ -8,16 +8,17 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 public class KoiModel extends AnimatedGeoModel<KoiEntity> {
     @Override
     public Identifier getModelLocation(KoiEntity object) {
-        return new Identifier(CelestialicMod.MOD_ID, "geo/koi.geo.json");
+        return new Identifier(CelestialicMod.MOD_ID, "geo/koientity.geo.json");
     }
 
     @Override
     public Identifier getTextureLocation(KoiEntity object) {
-        return KoiRenderer.LOCATION_BY_VARIANT.get(object.getVariant());
+        return new Identifier(CelestialicMod.MOD_ID, "textures/entity/koi/template.png");
+//        return KoiRenderer.LOCATION_BY_VARIANT.get(object.getVariant());
     }
 
     @Override
     public Identifier getAnimationFileLocation(KoiEntity animatable) {
-        return new Identifier(CelestialicMod.MOD_ID, "animations/koi.animation.json");
+        return new Identifier(CelestialicMod.MOD_ID, "animations/koientity.animation.json");
     }
 }

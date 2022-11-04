@@ -12,7 +12,7 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 
 public class AureateKoiRenderer extends GeoEntityRenderer<AureateKoiEntity> {
     public AureateKoiRenderer(EntityRendererFactory.Context ctx) {
-        super(ctx, new AureateKoiModel<>());
+        super(ctx, new AureateKoiModel());
     }
 
     @Override
