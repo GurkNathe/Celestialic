@@ -7,31 +7,29 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.DefaultParticleType;
 
 public class AureateParticle extends SpriteBillboardParticle {
-    protected AureateParticle(ClientWorld level, double xCoord, double yCoord, double zCoord,
-                              SpriteProvider spriteSet, double xd, double yd, double zd) {
-        super(level, xCoord, yCoord, zCoord, xd, yd, zd);
+    private final SpriteProvider spriteProvider;
+    protected AureateParticle(ClientWorld world, double xCoord, double yCoord, double zCoord,
+                              double xd, double yd, double zd, SpriteProvider spriteProvider) {
+        super(world, xCoord, yCoord, zCoord, xd, yd, zd);
+        this.spriteProvider = spriteProvider;
 
-        this.velocityMultiplier = 0.6F;
+        this.velocityMultiplier = 0.5F;
         this.x = xd;
         this.y = yd;
         this.z = zd;
         this.scale *= 0.75F;
-        this.maxAge = 20;
-        this.setSpriteForAge(spriteSet);
-
+        this.maxAge = 10;
         this.red = 1f;
         this.green = 1f;
         this.blue = 1f;
+
+        this.setSpriteForAge(spriteProvider);
     }
 
     @Override
     public void tick() {
         super.tick();
-        fadeOut();
-    }
-
-    private void fadeOut() {
-        this.alpha = (-(1/(float)maxAge) * age + 1);
+        this.setSpriteForAge(this.spriteProvider);
     }
 
     @Override
@@ -50,7 +48,7 @@ public class AureateParticle extends SpriteBillboardParticle {
         public Particle createParticle(DefaultParticleType particleType, ClientWorld level,
                                        double x, double y, double z,
                                        double dx, double dy, double dz) {
-            return new AureateParticle(level, x, y, z, this.sprites, dx, dy, dz);
+            return new AureateParticle(level, x, y, z, dx, dy, dz, this.sprites);
         }
     }
 }
