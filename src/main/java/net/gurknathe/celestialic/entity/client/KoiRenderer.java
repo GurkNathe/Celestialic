@@ -31,6 +31,8 @@ public class KoiRenderer extends GeoEntityRenderer<KoiEntity> {
                         new Identifier(CelestialicMod.MOD_ID, "textures/entity/koi/koi_kohaku.png"));
                 map.put(KoiVariant.SANKE,
                         new Identifier(CelestialicMod.MOD_ID, "textures/entity/koi/koi_sanke.png"));
+                map.put(KoiVariant.SHOWA,
+                        new Identifier(CelestialicMod.MOD_ID, "textures/entity/koi/koi_showa.png"));
                 map.put(KoiVariant.UTSURIMONO_RED,
                         new Identifier(CelestialicMod.MOD_ID, "textures/entity/koi/koi_utsurimono_red.png"));
                 map.put(KoiVariant.UTSURIMONO_WHITE,
@@ -45,8 +47,7 @@ public class KoiRenderer extends GeoEntityRenderer<KoiEntity> {
 
     @Override
     public Identifier getTextureLocation(KoiEntity instance) {
-        return new Identifier(CelestialicMod.MOD_ID, "textures/entity/koi/template.png");
-//        return LOCATION_BY_VARIANT.get(instance.getVariant());
+        return LOCATION_BY_VARIANT.get(instance.getVariant());
     }
 
     @Override

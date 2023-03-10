@@ -8,7 +8,7 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 public class AureateKoiModel extends AnimatedGeoModel<AureateKoiEntity> {
     @Override
     public Identifier getModelLocation(AureateKoiEntity object) {
-        return new Identifier(CelestialicMod.MOD_ID, "geo/koi.geo.json");
+        return new Identifier(CelestialicMod.MOD_ID, "geo/koientity.geo.json");
     }
 
     @Override
@@ -18,6 +18,6 @@ public class AureateKoiModel extends AnimatedGeoModel<AureateKoiEntity> {
 
     @Override
     public Identifier getAnimationFileLocation(AureateKoiEntity animatable) {
-        return new Identifier(CelestialicMod.MOD_ID, "animations/koi.animation.json");
+        return new Identifier(CelestialicMod.MOD_ID, "animations/koientity.animation.json");
     }
 }
