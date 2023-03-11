@@ -6,15 +6,12 @@ import java.util.Comparator;
 public enum KoiVariant {
     DEFAULT(0),
     TANCHO(1),
-    DOITSU(2),
-    GIN_RIN(3),
-    KOHAKU(4),
-    SANKE(5),
-    SHOWA(6),
-
-    UTSURIMONO_RED(7),
-    UTSURIMONO_WHITE(8),
-    KAWARIMONO_BROWN(9);
+    KOHAKU(2),
+    SANKE(3),
+    SHOWA(4),
+    UTSURIMONO_RED(5),
+    UTSURIMONO_WHITE(6),
+    CHAGOI(7);
 
     private static final KoiVariant[] BY_ID = Arrays.stream(values()).sorted(Comparator.
             comparingInt(KoiVariant::getId)).toArray(KoiVariant[]::new);

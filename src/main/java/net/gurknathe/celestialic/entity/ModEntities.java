@@ -23,25 +23,25 @@ public class ModEntities {
                 Registry.ENTITY_TYPE,
                 new Identifier(CelestialicMod.MOD_ID, "koi"),
                 FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, KoiEntity::new)
-                        .dimensions(EntityDimensions.changing(0.75f, 0.50f)).build()
+                        .dimensions(EntityDimensions.changing(1.0f, 0.75f)).build()
         );
         AUREATE_KOI = Registry.register(
                 Registry.ENTITY_TYPE,
                 new Identifier(CelestialicMod.MOD_ID, "aureate_koi"),
                 FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, AureateKoiEntity::new)
-                        .dimensions(EntityDimensions.changing(0.625f, 0.375f)).build()
+                        .dimensions(EntityDimensions.changing(1.0f, 0.75f)).build()
         );
         YANG_KOI = Registry.register(
                 Registry.ENTITY_TYPE,
                 new Identifier(CelestialicMod.MOD_ID, "yang_koi"),
                 FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, YangKoiEntity::new)
-                        .dimensions(EntityDimensions.changing(0.625f, 0.375f)).build()
+                        .dimensions(EntityDimensions.changing(1.0f, 0.75f)).build()
         );
         YIN_KOI = Registry.register(
                 Registry.ENTITY_TYPE,
                 new Identifier(CelestialicMod.MOD_ID, "yin_koi"),
                 FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, YinKoiEntity::new)
-                        .dimensions(EntityDimensions.changing(0.75f, 0.50f)).build()
+                        .dimensions(EntityDimensions.changing(1.0f, 0.75f)).build()
         );
     }
 }

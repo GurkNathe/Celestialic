@@ -42,7 +42,7 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
     private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT =
             DataTracker.registerData(KoiEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
-    private AnimationFactory factory = new AnimationFactory(this);
+    private final AnimationFactory factory = new AnimationFactory(this);
 
     public KoiEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
         super(entityType, world);
@@ -158,7 +158,7 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
         return PlayState.CONTINUE;
     }
 
-    @SuppressWarnings({ "unsafe" })
+
     @Override
     public void registerControllers(AnimationData animationData) {
         animationData.addAnimationController(new AnimationController(this, "controller",
