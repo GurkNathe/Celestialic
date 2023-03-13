@@ -18,7 +18,7 @@ public class CelestialGrass extends SpreadableBlock {
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
         if (!world.isClient()) {
             if (entity instanceof LivingEntity livingEntity) {
-                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 300));
+                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100));
             }
         }
         super.onSteppedOn(world, pos, state, entity);

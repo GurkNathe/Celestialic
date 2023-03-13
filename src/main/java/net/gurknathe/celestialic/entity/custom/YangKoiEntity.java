@@ -1,6 +1,5 @@
 package net.gurknathe.celestialic.entity.custom;
 
-import net.gurknathe.celestialic.particle.ModParticles;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
@@ -126,6 +125,7 @@ public class YangKoiEntity extends NeutralWaterMob implements IAnimatable {
             this.playSound(this.getFlopSound(), this.getSoundVolume(), this.getSoundPitch());
         }
 
+        // ADD YANG PARTICLES
 //        if (this.world.isClient) {
 //            // Add particle effect
 //            if (this.random.nextDouble() > 0.85) {

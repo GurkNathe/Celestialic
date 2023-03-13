@@ -42,9 +42,9 @@ public class NeutralWaterMob extends WaterCreatureEntity implements Angerable {
     @Override
     protected void initGoals() {
         super.initGoals();
-        this.goalSelector.add(1, new MeleeAttackGoal(this, 1.2, true));
         this.goalSelector.add(2, new MoveIntoWaterGoal(this));
-        this.goalSelector.add(4, new WanderAroundGoal(this, 1.0, 80));
+        this.goalSelector.add(2, new MeleeAttackGoal(this, 1.25, false));
+        this.goalSelector.add(6, new WanderAroundGoal(this, 1.0, 80));
         this.targetSelector.add(3, new TargetGoal(this));
         this.targetSelector.add(4, new RevengeGoal(this, new Class[0]));
     }
