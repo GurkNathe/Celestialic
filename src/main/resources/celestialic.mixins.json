@@ -6,9 +6,7 @@
   "mixins": [
     "PiglinBrainMixin"
   ],
-  "client": [
-    "ExampleMixin"
-  ],
+  "client": [],
   "injectors": {
     "defaultRequire": 1
   }

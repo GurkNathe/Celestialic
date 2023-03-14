@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "celestialic:block/stripped_celestial_top",
+    "side": "celestialic:block/stripped_celestial_log"
+  }
+}

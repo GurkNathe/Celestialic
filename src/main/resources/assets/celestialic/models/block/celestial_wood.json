@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "celestialic:block/celestial_log",
+    "side": "celestialic:block/celestial_log"
+  }
+}
