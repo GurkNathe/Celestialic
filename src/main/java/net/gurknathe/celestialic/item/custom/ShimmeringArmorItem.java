@@ -1,6 +1,6 @@
 package net.gurknathe.celestialic.item.custom;
 
-import net.gurknathe.celestialic.item.ModItems;
+import net.gurknathe.celestialic.item.CelestialicItems;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.decoration.ArmorStandEntity;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ShimmeringArmorItem extends ModArmorItem implements IAnimatable {
+public class ShimmeringArmorItem extends ArmorItem implements IAnimatable {
     private final AnimationFactory factory = new AnimationFactory(this);
 
     public ShimmeringArmorItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
@@ -43,8 +43,8 @@ public class ShimmeringArmorItem extends ModArmorItem implements IAnimatable {
             }
         }
 
-        boolean isWearingAll = armorList.containsAll(Arrays.asList(ModItems.SHIMMERING_BOOTS,
-                ModItems.SHIMMERING_GREAVES, ModItems.SHIMMERING_CHESTPLATE, ModItems.SHIMMERING_HELMET));
+        boolean isWearingAll = armorList.containsAll(Arrays.asList(CelestialicItems.SHIMMERING_BOOTS,
+                CelestialicItems.SHIMMERING_GREAVES, CelestialicItems.SHIMMERING_CHESTPLATE, CelestialicItems.SHIMMERING_HELMET));
         return isWearingAll ? PlayState.CONTINUE : PlayState.STOP;
     }
 

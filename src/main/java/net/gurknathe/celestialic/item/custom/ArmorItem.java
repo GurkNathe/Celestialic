@@ -1,26 +1,25 @@
 package net.gurknathe.celestialic.item.custom;
 
 import com.google.common.collect.ImmutableMap;
-import net.gurknathe.celestialic.item.ModArmorMaterials;
+import net.gurknathe.celestialic.item.CelestialicArmorMaterials;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.Map;
 
-public class ModArmorItem extends ArmorItem {
+public class ArmorItem extends net.minecraft.item.ArmorItem {
     private static final Map<ArmorMaterial, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, StatusEffectInstance>())
-                    .put(ModArmorMaterials.SHIMMERING,
+                    .put(CelestialicArmorMaterials.SHIMMERING,
                             new StatusEffectInstance(StatusEffects.LUCK, 400, 1)).build();
 
-    public ModArmorItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
+    public ArmorItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
         super(material, slot, settings);
     }
 
@@ -54,10 +53,6 @@ public class ModArmorItem extends ArmorItem {
         if(hasCorrectArmorOn(mapArmorMaterial, player) && !hasPlayerEffect) {
             player.addStatusEffect(new StatusEffectInstance(mapStatusEffect.getEffectType(),
                     mapStatusEffect.getDuration(), mapStatusEffect.getAmplifier()));
-
-            // if(new Random().nextFloat() > 0.6f) { // 40% of damaging the armor! Possibly!
-            //     player.getInventory().damageArmor(DamageSource.MAGIC, 1f, new int[]{0, 1, 2, 3});
-            // }
         }
     }
 
@@ -72,10 +67,10 @@ public class ModArmorItem extends ArmorItem {
     }
 
     private boolean hasCorrectArmorOn(ArmorMaterial material, PlayerEntity player) {
-        ArmorItem boots = ((ArmorItem)player.getInventory().getArmorStack(0).getItem());
-        ArmorItem leggings = ((ArmorItem)player.getInventory().getArmorStack(1).getItem());
-        ArmorItem breastplate = ((ArmorItem)player.getInventory().getArmorStack(2).getItem());
-        ArmorItem helmet = ((ArmorItem)player.getInventory().getArmorStack(3).getItem());
+        net.minecraft.item.ArmorItem boots = ((net.minecraft.item.ArmorItem)player.getInventory().getArmorStack(0).getItem());
+        net.minecraft.item.ArmorItem leggings = ((net.minecraft.item.ArmorItem)player.getInventory().getArmorStack(1).getItem());
+        net.minecraft.item.ArmorItem breastplate = ((net.minecraft.item.ArmorItem)player.getInventory().getArmorStack(2).getItem());
+        net.minecraft.item.ArmorItem helmet = ((net.minecraft.item.ArmorItem)player.getInventory().getArmorStack(3).getItem());
 
         return helmet.getMaterial() == material && breastplate.getMaterial() == material &&
                 leggings.getMaterial() == material && boots.getMaterial() == material;

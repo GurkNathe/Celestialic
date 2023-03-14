@@ -17,6 +17,13 @@
   "item.celestialic.shimmering_boots": "Shimmering Boots",
 
   "block.celestialic.celestial_grass": "Celestial Grass",
+  "block.celestialic.celestial_leaves": "Celestial Leaves",
+  "block.celestialic.celestial_log": "Celestial Log",
+  "block.celestialic.celestial_planks": "Celestial Planks",
+  "block.celestialic.celestial_sapling": "Celestial Sapling",
+  "block.celestialic.celestial_wood": "Celestial Wood",
+  "block.celestialic.stripped_celestial_log": "Stripped Celestial Log",
+  "block.celestialic.stripped_celestial_wood": "Stripped Celestial Wood",
 
   "itemGroup.celestialic.celestialic": "Celestialic Tab",
 

@@ -3,7 +3,6 @@ package net.gurknathe.celestialic.item;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -11,10 +10,10 @@ import net.minecraft.util.Lazy;
 
 import java.util.function.Supplier;
 
-public enum ModArmorMaterials implements ArmorMaterial {
+public enum CelestialicArmorMaterials implements ArmorMaterial {
     SHIMMERING("shimmering", 18, new int[]{2, 5, 6, 3}, 28,
             SoundEvents.ITEM_ARMOR_EQUIP_TURTLE, 1.0F, 0.0F,
-            () -> Ingredient.ofItems(new ItemConvertible[]{ModItems.SHIMMERING_SCALE, Items.GOLD_INGOT}));
+            () -> Ingredient.ofItems(new ItemConvertible[]{CelestialicItems.SHIMMERING_SCALE, net.minecraft.item.Items.GOLD_INGOT}));
 
     private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
     private final String name;
@@ -26,9 +25,9 @@ public enum ModArmorMaterials implements ArmorMaterial {
     private final float knockbackResistance;
     private final Lazy<Ingredient> repairIngredientSupplier;
 
-    ModArmorMaterials(String name, int durabilityMultiplier, int[] protectionAmounts,
-                      int enchantability, SoundEvent equipSound, float toughness,
-                      float knockbackResistance, Supplier repairIngredientSupplier) {
+    CelestialicArmorMaterials(String name, int durabilityMultiplier, int[] protectionAmounts,
+                              int enchantability, SoundEvent equipSound, float toughness,
+                              float knockbackResistance, Supplier repairIngredientSupplier) {
         this.name = name;
         this.durabilityMultiplier = durabilityMultiplier;
         this.protectionAmounts = protectionAmounts;

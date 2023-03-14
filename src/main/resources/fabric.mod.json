@@ -3,7 +3,7 @@
   "id": "celestialic",
   "version": "${version}",
 
-  "name": "Celestialic Mod",
+  "name": "Celestialic",
   "description": "A mod intending to add numerous fish mobs and boss, among other things.",
   "authors": [
     "GurkNathe"
@@ -20,10 +20,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.gurknathe.celestialic.CelestialicMod"
+      "net.gurknathe.celestialic.Celestialic"
     ],
     "client": [
-      "net.gurknathe.celestialic.CelestialicClientMod"
+      "net.gurknathe.celestialic.CelestialicClient"
     ]
   },
   "mixins": [

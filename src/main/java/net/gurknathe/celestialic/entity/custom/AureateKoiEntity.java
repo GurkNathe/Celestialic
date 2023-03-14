@@ -1,6 +1,6 @@
 package net.gurknathe.celestialic.entity.custom;
 
-import net.gurknathe.celestialic.particle.ModParticles;
+import net.gurknathe.celestialic.particle.CelestialicParticles;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.EntityNavigation;
@@ -142,7 +142,7 @@ public class AureateKoiEntity extends NeutralWaterMob implements IAnimatable {
 
         if (this.world.isClient) {
             if (this.random.nextDouble() > 0.85) {
-                this.world.addParticle(ModParticles.AUREATE_PARTICLE,
+                this.world.addParticle(CelestialicParticles.AUREATE_PARTICLE,
                         this.getParticleX(0.5),
                         this.getRandomBodyY(),
                         this.getParticleZ(0.5),

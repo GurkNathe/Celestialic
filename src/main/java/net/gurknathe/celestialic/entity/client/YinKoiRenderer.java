@@ -1,6 +1,6 @@
 package net.gurknathe.celestialic.entity.client;
 
-import net.gurknathe.celestialic.CelestialicMod;
+import net.gurknathe.celestialic.Celestialic;
 import net.gurknathe.celestialic.entity.custom.YinKoiEntity;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
@@ -19,7 +19,7 @@ public class YinKoiRenderer extends GeoEntityRenderer<YinKoiEntity> {
 
     @Override
     public Identifier getTextureLocation(YinKoiEntity instance) {
-        return new Identifier(CelestialicMod.MOD_ID, "textures/entity/koi_yin.png");
+        return new Identifier(Celestialic.MOD_ID, "textures/entity/koi_yin.png");
     }
 
     @Override

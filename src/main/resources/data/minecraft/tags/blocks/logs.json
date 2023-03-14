@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "celestialic:celestial_log",
+    "celestialic:celestial_wood",
+    "celestialic:stripped_celestial_log",
+    "celestialic:stripped_celestial_wood"
+  ]
+}

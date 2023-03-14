@@ -1,6 +1,6 @@
 package net.gurknathe.celestialic.entity.client;
 
-import net.gurknathe.celestialic.CelestialicMod;
+import net.gurknathe.celestialic.Celestialic;
 import net.gurknathe.celestialic.entity.custom.AureateKoiEntity;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
@@ -17,7 +17,7 @@ public class AureateKoiRenderer extends GeoEntityRenderer<AureateKoiEntity> {
 
     @Override
     public Identifier getTextureLocation(AureateKoiEntity instance) {
-        return new Identifier(CelestialicMod.MOD_ID, "textures/entity/koi_aureate.png");
+        return new Identifier(Celestialic.MOD_ID, "textures/entity/koi_aureate.png");
     }
 
     @Override

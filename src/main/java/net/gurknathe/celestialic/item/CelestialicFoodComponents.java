@@ -2,7 +2,7 @@ package net.gurknathe.celestialic.item;
 
 import net.minecraft.item.FoodComponent;
 
-public class ModFoodComponents {
+public class CelestialicFoodComponents {
     public static final FoodComponent RAW_KOI;
     public static final FoodComponent COOKED_KOI;
 

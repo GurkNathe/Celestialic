@@ -2,7 +2,7 @@ package net.gurknathe.celestialic.entity.custom;
 
 import net.gurknathe.celestialic.entity.variant.KoiVariant;
 import net.gurknathe.celestialic.helper.HelperFunctions;
-import net.gurknathe.celestialic.item.ModItems;
+import net.gurknathe.celestialic.item.CelestialicItems;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -203,7 +203,7 @@ public class KoiEntity extends SchoolingFishEntity implements IAnimatable {
 
     @Override
     public ItemStack getBucketItem() {
-        return new ItemStack(ModItems.KOI_BUCKET);
+        return new ItemStack(CelestialicItems.KOI_BUCKET);
     }
 
     public float getScale() {
