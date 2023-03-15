@@ -2,6 +2,7 @@ package net.gurknathe.celestialic;
 
 import net.fabricmc.api.ModInitializer;
 import net.gurknathe.celestialic.block.CelestialicBlocks;
+import net.gurknathe.celestialic.block.CelestialicCompostableItems;
 import net.gurknathe.celestialic.item.CelestialicItems;
 import net.gurknathe.celestialic.particle.CelestialicParticles;
 import net.gurknathe.celestialic.util.CelestialicFlammableBlocks;
@@ -29,6 +30,8 @@ public class Celestialic implements ModInitializer {
 
 		CelestialicItems.registerModItems();
 		CelestialicBlocks.registerModBlocks();
+
+		CelestialicCompostableItems.registerCompostableItems();
 
 		CelestialicRegistries.registerModStuffs();
 

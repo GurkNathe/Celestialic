@@ -17,7 +17,9 @@ public class ArmorItem extends net.minecraft.item.ArmorItem {
     private static final Map<ArmorMaterial, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, StatusEffectInstance>())
                     .put(CelestialicArmorMaterials.SHIMMERING,
-                            new StatusEffectInstance(StatusEffects.LUCK, 400, 1)).build();
+                            new StatusEffectInstance(StatusEffects.LUCK,
+                                    100, 1, false, false))
+                    .build();
 
     public ArmorItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
         super(material, slot, settings);
@@ -52,7 +54,7 @@ public class ArmorItem extends net.minecraft.item.ArmorItem {
 
         if(hasCorrectArmorOn(mapArmorMaterial, player) && !hasPlayerEffect) {
             player.addStatusEffect(new StatusEffectInstance(mapStatusEffect.getEffectType(),
-                    mapStatusEffect.getDuration(), mapStatusEffect.getAmplifier()));
+                    mapStatusEffect.getDuration(), mapStatusEffect.getAmplifier(), false, false));
         }
     }
 

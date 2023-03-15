@@ -18,25 +18,25 @@ public class CelestialicBlocks {
     public static final AbstractBlock.Settings GRASS_BLOCK = FabricBlockSettings.of(Material.SOLID_ORGANIC).sounds(BlockSoundGroup.GRASS).ticksRandomly();
 
     public static final Block CELESTIAL_GRASS = registerBlock("celestial_grass",
-            new CelestialGrass(FabricBlockSettings.copyOf(GRASS_BLOCK).strength(2f).resistance(3f).requiresTool()));
+            new CelestialGrass(FabricBlockSettings.copyOf(GRASS_BLOCK).strength(1f).resistance(3f).requiresTool()));
 
     public static final Block CELESTIAL_LOG = registerBlock("celestial_log",
-            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).strength(2f).resistance(3f).requiresTool()));
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)));
     public static final Block CELESTIAL_WOOD = registerBlock("celestial_wood",
-            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD).strength(2f).resistance(3f).requiresTool()));
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)));
 
     public static final Block STRIPPED_CELESTIAL_LOG = registerBlock("stripped_celestial_log",
-            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG).strength(2f).resistance(3f).requiresTool()));
+            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG)));
     public static final Block STRIPPED_CELESTIAL_WOOD = registerBlock("stripped_celestial_wood",
-            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD).strength(2f).resistance(3f).requiresTool()));
+            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD)));
 
     public static final Block CELESTIAL_PLANKS = registerBlock("celestial_planks",
-            new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS).strength(2f).resistance(3f).requiresTool()));
+            new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)));
     public static final Block CELESTIAL_LEAVES = registerBlock("celestial_leaves",
-            new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).strength(2f).resistance(3f).requiresTool()));
+            new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES)));
 
     public static final Block CELESTIAL_SAPLING = registerBlock("celestial_sapling",
-            new SaplingBlock(new CelestialSapplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING).breakInstantly()));
+            new SaplingBlock(new CelestialSapplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
