@@ -7,6 +7,7 @@ import net.gurknathe.celestialic.block.custom.CelestialGrass;
 import net.gurknathe.celestialic.item.CelestialicItemGroup;
 import net.gurknathe.celestialic.world.feature.tree.CelestialSapplingGenerator;
 import net.minecraft.block.*;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
@@ -38,6 +39,15 @@ public class CelestialicBlocks {
     public static final Block CELESTIAL_SAPLING = registerBlock("celestial_sapling",
             new SaplingBlock(new CelestialSapplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
 
+    public static final Block MAGNOLIA = registerBlock("magnolia",
+            new FlowerBlock(StatusEffects.SATURATION, 5, FabricBlockSettings.copy(Blocks.DANDELION)));
+
+    public static final Block POTTED_MAGNOLIA = registerBlockWithoutItem("potted_magnolia",
+            new FlowerPotBlock(CelestialicBlocks.MAGNOLIA, FabricBlockSettings.copy(Blocks.POTTED_DANDELION)));
+
+    private static Block registerBlockWithoutItem(String name, Block block) {
+        return Registry.register(Registry.BLOCK, new Identifier(Celestialic.MOD_ID, name), block);
+    }
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registry.BLOCK, new Identifier(Celestialic.MOD_ID, name), block);

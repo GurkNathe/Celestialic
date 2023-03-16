@@ -30,6 +30,11 @@ public class CelestialicConfiguredFeatures {
             ConfiguredFeatures.register("celestial_spawn", Feature.RANDOM_SELECTOR,
                     new RandomFeatureConfig(List.of(new RandomFeatureEntry(CELESTIAL_CHECKED, 0.5f)),
                             CELESTIAL_CHECKED));
+
+    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> MAGNOLIA =
+            ConfiguredFeatures.register("flower_magnolia", Feature.FLOWER,
+                    ConfiguredFeatures.createRandomPatchFeatureConfig(64, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
+                            new SimpleBlockFeatureConfig(BlockStateProvider.of(CelestialicBlocks.MAGNOLIA)))));
     public static void registerConfiguredFeatures() {
         Celestialic.LOGGER.debug("Registering the CelestialicConfiguredFeatures for " + Celestialic.MOD_ID);
     }

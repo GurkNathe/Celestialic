@@ -26,7 +26,10 @@ public class CelestialicClient implements ClientModInitializer {
         EntityRendererRegistry.register(CelestialicEntities.YANG_KOI, YangKoiRenderer::new);
         EntityRendererRegistry.register(CelestialicEntities.YIN_KOI, YinKoiRenderer::new);
 
-        BlockRenderLayerMap.INSTANCE.putBlock(CelestialicBlocks.CELESTIAL_LEAVES, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(CelestialicBlocks.MAGNOLIA, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(CelestialicBlocks.POTTED_MAGNOLIA, RenderLayer.getCutout());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(CelestialicBlocks.CELESTIAL_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(CelestialicBlocks.CELESTIAL_SAPLING, RenderLayer.getCutout());
 
         ParticleFactoryRegistry.getInstance().register(CelestialicParticles.AUREATE_PARTICLE, AureateParticle.Factory::new);
