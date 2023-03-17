@@ -21,6 +21,7 @@ public class CelestialicItems {
     public static final Item AUREATE_KOI_SPAWN_EGG;
     public static final Item YANG_KOI_SPAWN_EGG;
     public static final Item YIN_KOI_SPAWN_EGG;
+    public static final Item AERO_KOI_SPAWN_EGG;
     public static final Item KOI_BUCKET;
     public static final Item RAW_KOI;
     public static final Item COOKED_KOI;
@@ -90,6 +91,12 @@ public class CelestialicItems {
 
         SHIMMERING_BOOTS = registerItem("shimmering_boots",
                 new ShimmeringArmorItem(CelestialicArmorMaterials.SHIMMERING, EquipmentSlot.FEET,
+                        new FabricItemSettings().group(CelestialicItemGroup.CELESTIALIC)));
+        AERO_KOI_SPAWN_EGG = registerItem("aero_koi_spawn_egg",
+                new SpawnEggItem(
+                        CelestialicEntities.AERO_KOI,
+                        0x1f6ddc,
+                        0xaec2de,
                         new FabricItemSettings().group(CelestialicItemGroup.CELESTIALIC)));
     }
     private static Item registerItem(String name, Item item) {

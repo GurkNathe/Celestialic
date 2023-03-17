@@ -2,10 +2,7 @@ package net.gurknathe.celestialic.entity;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.gurknathe.celestialic.Celestialic;
-import net.gurknathe.celestialic.entity.custom.AureateKoiEntity;
-import net.gurknathe.celestialic.entity.custom.KoiEntity;
-import net.gurknathe.celestialic.entity.custom.YangKoiEntity;
-import net.gurknathe.celestialic.entity.custom.YinKoiEntity;
+import net.gurknathe.celestialic.entity.custom.*;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -17,6 +14,7 @@ public class CelestialicEntities {
     public static final EntityType<AureateKoiEntity> AUREATE_KOI;
     public static final EntityType<YangKoiEntity> YANG_KOI;
     public static final EntityType<YinKoiEntity> YIN_KOI;
+    public static final EntityType<AeroKoiEntity> AERO_KOI;
 
     static {
         KOI = Registry.register(
@@ -42,6 +40,12 @@ public class CelestialicEntities {
                 new Identifier(Celestialic.MOD_ID, "yin_koi"),
                 FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, YinKoiEntity::new)
                         .dimensions(EntityDimensions.changing(1.0f, 0.75f)).build()
+        );
+        AERO_KOI = Registry.register(
+                Registry.ENTITY_TYPE,
+                new Identifier(Celestialic.MOD_ID, "aero_koi"),
+                FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, AeroKoiEntity::new)
+                        .dimensions(EntityDimensions.changing(1.0f,0.75f)).build()
         );
     }
 }

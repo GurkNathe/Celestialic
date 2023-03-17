@@ -6,10 +6,7 @@ import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.gurknathe.celestialic.block.CelestialicBlocks;
 import net.gurknathe.celestialic.entity.CelestialicEntities;
-import net.gurknathe.celestialic.entity.client.AureateKoiRenderer;
-import net.gurknathe.celestialic.entity.client.KoiRenderer;
-import net.gurknathe.celestialic.entity.client.YangKoiRenderer;
-import net.gurknathe.celestialic.entity.client.YinKoiRenderer;
+import net.gurknathe.celestialic.entity.client.*;
 import net.gurknathe.celestialic.entity.client.armor.ShimmeringArmorRenderer;
 import net.gurknathe.celestialic.item.CelestialicItems;
 import net.gurknathe.celestialic.particle.CelestialicParticles;
@@ -25,6 +22,7 @@ public class CelestialicClient implements ClientModInitializer {
         EntityRendererRegistry.register(CelestialicEntities.AUREATE_KOI, AureateKoiRenderer::new);
         EntityRendererRegistry.register(CelestialicEntities.YANG_KOI, YangKoiRenderer::new);
         EntityRendererRegistry.register(CelestialicEntities.YIN_KOI, YinKoiRenderer::new);
+        EntityRendererRegistry.register(CelestialicEntities.AERO_KOI, AeroKoiRenderer::new);
 
         BlockRenderLayerMap.INSTANCE.putBlock(CelestialicBlocks.MAGNOLIA, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(CelestialicBlocks.POTTED_MAGNOLIA, RenderLayer.getCutout());

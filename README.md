@@ -1,4 +1,4 @@
-# Celestialic [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![Version: ](https://img.shields.io/badge/version-v0.1.5.2-blue)
+# Celestialic [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![Version: ](https://img.shields.io/badge/version-v0.1.5.4-blue)
 
 <img src="./src/main/resources/assets/celestialic/icon.png" alt="Logo" width="250" height="250" align="left"/>
 
